@@ -10,15 +10,17 @@ paintContent = "=================================\nSELL Paint Bucket at ✅ JAHO
 blockContent = "=================================\nSELL Tons Blocks at ✅ JAHO ✅ \n=================================\n\n🔢 Sell Number 0-9\n🔢 Sell Number Block 0-9\n\n=================================\nSELL Tons Blocks at ✅ JAHO ✅ \n================================="
  
 header_data = { 
-	"content-type": "application/json", 
-	"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36", 
-	"authorization": "MzMzOTA4ODIzODk3MDE0Mjc1.GIXb3K.yl2BE52qcC6l0wy3Q4_QpcQU8iWlD_xsPohSm8", 
-	"host": "discordapp.com", 
-	"referer": "https://discord.gg/thelostnemo" 
+  "content-type": "application/json", 
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.76", 
+  "authorization": "MzMzOTA4ODIzODk3MDE0Mjc1.GIXb3K.yl2BE52qcC6l0wy3Q4_QpcQU8iWlD_xsPohSm8", 
+  "host": "discordapp.com", 
+  "referer": "https://discord.gg/thelostnemo" 
 } 
+
+
  
 def get_connection(): 
-	return HTTPSConnection("discordapp.com", 443) 
+  return HTTPSConnection("discordapp.com", 443) 
  
 def send_message(conn, channel_id, message_data): 
     try: 
@@ -26,7 +28,7 @@ def send_message(conn, channel_id, message_data):
         resp = conn.getresponse() 
          
         if 199 < resp.status < 300: 
-            print("Message sent...") 
+            print("Message sent with channel id of " + str(channel_id)) 
             pass 
  
         else: 
@@ -37,33 +39,32 @@ def send_message(conn, channel_id, message_data):
         stderr.write("Failed to send_message\n") 
  
 def main(): 
-	wallpaper_data = { 
-		"content": wallpaperContent, 
-		"tts": "false", 
-	} 
+  wallpaper_data = { 
+    "content": wallpaperContent, 
+    "tts": "false", 
+  } 
       
-	paint_data = {
+  paint_data = {
     "content": paintContent, 
-		"tts": "false",   
-	}
+    "tts": "false",   
+  }
       
-	block_data = {
+  block_data = {
     "content": blockContent, 
-		"tts": "false", 
-	}
+    "tts": "false", 
+  }
  
-	# Send Wallpaper Promotion Message
-	send_message(get_connection(), "782718523629633567", dumps(wallpaper_data))
-	sleep(60)  
-	# Send Paint Bucket Promotion Message
-	send_message(get_connection(), "774455258407370752", dumps(paint_data))
-	sleep(60) 
+  # Send Wallpaper Promotion Message
+  send_message(get_connection(), "782718523629633567", dumps(wallpaper_data))
+  sleep(15)  
+  # Send Paint Bucket Promotion Message
+  send_message(get_connection(), "774455258407370752", dumps(paint_data))
+  sleep(15) 
   # Send Block Promotion Message
-	send_message(get_connection(), "1104057271215984741", dumps(block_data))
-
-  
+  send_message(get_connection(), "1104057271215984741", dumps(block_data))
  
 if __name__ == '__main__': 
-	while True:
-		main()
-		sleep(7260) 
+  print("=== Discord Auto Message Start ===")
+  while True:
+    main()
+    sleep(7215) 
