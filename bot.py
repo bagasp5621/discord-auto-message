@@ -24,10 +24,10 @@ platform_content = getContent("PLATFORM_CONTENT")
 
 header_data = { 
   "content-type": "application/json", 
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36", 
+  "user-agent": "", 
   "authorization": "", 
   "host": "discordapp.com", 
-  "referer": "https://discord.gg/thelostnemo" 
+  "referer": "" 
 } 
 
 def get_connection(): 
