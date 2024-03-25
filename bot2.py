@@ -11,10 +11,10 @@ wallpaper_content = os.getenv("WALLPAPER_CONTENT")
 
 header_data = { 
   "content-type": "application/json", 
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36", 
-  "authorization": "MzMzOTA4ODIzODk3MDE0Mjc1.G9MATa.Q8byB3jP-PSrsBdz-3jGHVzkYCBSLl9vG_D898", 
+  "user-agent": "", 
+  "authorization": "", 
   "host": "discordapp.com", 
-  "referer": "333911450362052610" 
+  "referer": "" 
 } 
  
 def get_connection(): 
