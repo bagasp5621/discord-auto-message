@@ -1,24 +1,35 @@
 from http.client import HTTPSConnection 
+from dotenv import load_dotenv
 from sys import stderr 
 from json import dumps 
 from time import sleep 
+import os
 
-wallpaperContent = "=================================\nSELL WALLPAPER at ✅ JAHO ✅ \n=================================\n\n⬛  Sell Black Wallpaper\n⬜  Sell White Wallpaper\n🔳  Sell Grey Wallpaper\n🟥  Sell Red Wallpaper\n🟩  Sell Aqua Wallpaper\n🟩  Sell Green Wallpaper\n🟫  Sell Brown Wallpaper\n🟦  Sell Blue Wallpaper\n🟪  Sell Purple Wallpaper\n\n=================================\nSELL WALLPAPER at ✅ JAHO ✅ \n=================================\n"
+load_dotenv()
 
-paintContent = "=================================\nSELL Paint Bucket at ✅ JAHO ✅ \n=================================\n\n⚪ Sell Paint Bucket - Varnish\n🔵 Sell Paint Bucket - Aqua\n🟢 Sell Paint Bucket - Green\n🔵 Sell Paint Bucket - Blue\n🟣 Sell Paint Bucket - Purple\n🟡 Sell Paint Bucket - Yellow\n🔴 Sell Paint Bucket - Red\n⚫ Sell Paint Bucket - Charcoal / Black\n\n=================================\nSELL Paint Bucket at ✅ JAHO ✅ \n================================="
+def getContent(contentTitle):
+   return os.getenv(contentTitle)
 
-blockContent = "=================================\nSELL Tons Blocks at ✅ JAHO ✅ \n=================================\n\n🔢 Sell Number 0-9\n🔢 Sell Number Block 0-9\n\n=================================\nSELL Tons Blocks at ✅ JAHO ✅ \n================================="
- 
+wallpaper_content = getContent("WALLPAPER_CONTENT")
+paint_content = getContent("PAINT_CONTENT")
+block_content = getContent("BLOCK_CONTENT")
+seed_content = getContent("SEED_CONTENT")
+consumable_content = getContent("CONSUMABLE_CONTENT")
+music_content = getContent("MUSIC_CONTENT")
+steam_content = getContent("STEAM_CONTENT")
+jammer_content = getContent("JAMMER_CONTENT")
+door_content = getContent("DOOR_CONTENT")
+sign_content = getContent("SIGN_CONTENT")
+platform_content = getContent("PLATFORM_CONTENT")
+
 header_data = { 
   "content-type": "application/json", 
-  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.76", 
-  "authorization": "MzMzOTA4ODIzODk3MDE0Mjc1.GIXb3K.yl2BE52qcC6l0wy3Q4_QpcQU8iWlD_xsPohSm8", 
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36", 
+  "authorization": "MzMzOTA4ODIzODk3MDE0Mjc1.G9MATa.Q8byB3jP-PSrsBdz-3jGHVzkYCBSLl9vG_D898", 
   "host": "discordapp.com", 
   "referer": "https://discord.gg/thelostnemo" 
 } 
 
-
- 
 def get_connection(): 
   return HTTPSConnection("discordapp.com", 443) 
  
@@ -39,32 +50,30 @@ def send_message(conn, channel_id, message_data):
         stderr.write("Failed to send_message\n") 
  
 def main(): 
-  wallpaper_data = { 
-    "content": wallpaperContent, 
-    "tts": "false", 
-  } 
-      
-  paint_data = {
-    "content": paintContent, 
-    "tts": "false",   
+  data_list = {
+      "782718523629633567": wallpaper_content,
+      "774455258407370752": paint_content,
+      "1104057271215984741": block_content,
+      "1105154359114875072": seed_content,
+      "847201895873118218": consumable_content,
+      "782718975091933214": music_content,
+      "806499108801478676": steam_content,
+      "806523338797219860": jammer_content,
+      "846671811223355402": door_content,
+      "846661246303469598": sign_content,
+      "846673193426354176": platform_content
   }
-      
-  block_data = {
-    "content": blockContent, 
-    "tts": "false", 
-  }
- 
-  # Send Wallpaper Promotion Message
-  send_message(get_connection(), "782718523629633567", dumps(wallpaper_data))
-  sleep(15)  
-  # Send Paint Bucket Promotion Message
-  send_message(get_connection(), "774455258407370752", dumps(paint_data))
-  sleep(15) 
-  # Send Block Promotion Message
-  send_message(get_connection(), "1104057271215984741", dumps(block_data))
+
+  for channel_id, content in data_list.items():
+      data = {
+          "content": content,
+          "tts": "false"
+      }
+      send_message(get_connection(), channel_id, dumps(data))
+      sleep(15)
  
 if __name__ == '__main__': 
   print("=== Discord Auto Message Start ===")
   while True:
     main()
-    sleep(7215) 
+    sleep(7300) 
