@@ -14,7 +14,7 @@ wallpaper_content = getContent("WALLPAPER_CONTENT")
 paint_content = getContent("PAINT_CONTENT")
 block_content = getContent("BLOCK_CONTENT")
 seed_content = getContent("SEED_CONTENT")
-consumable_content = getContent("CONSUMABLE_CONTENT")
+consumable_content = getContent("CONSUMABLES_CONTENT")
 music_content = getContent("MUSIC_CONTENT")
 steam_content = getContent("STEAM_CONTENT")
 jammer_content = getContent("JAMMER_CONTENT")
@@ -27,7 +27,7 @@ header_data = {
   "user-agent": "", 
   "authorization": "", 
   "host": "discordapp.com", 
-  "referer": "" 
+  "referer": "https://discord.gg/thelostnemo" 
 } 
 
 def get_connection(): 
