@@ -4,6 +4,7 @@ from sys import stderr
 from json import dumps 
 from time import sleep 
 import os
+import ssl
 
 load_dotenv()
 
@@ -21,16 +22,18 @@ jammer_content = getContent("JAMMER_CONTENT")
 door_content = getContent("DOOR_CONTENT")
 sign_content = getContent("SIGN_CONTENT")
 platform_content = getContent("PLATFORM_CONTENT")
+surg_content = getContent("SURG_CONTENT")
 
 header_data = { 
   "content-type": "application/json", 
   "user-agent": "", 
   "authorization": "", 
   "host": "discordapp.com", 
-  "referer": "https://discord.gg/thelostnemo" 
+  "referer": "" 
 } 
 
 def get_connection(): 
+  ssl._create_default_https_context = ssl._create_unverified_context
   return HTTPSConnection("discordapp.com", 443) 
  
 def send_message(conn, channel_id, message_data): 
@@ -61,7 +64,8 @@ def main():
       "806523338797219860": jammer_content,
       "846671811223355402": door_content,
       "846661246303469598": sign_content,
-      "846673193426354176": platform_content
+      "846673193426354176": platform_content,
+      "733049257648586792": surg_content
   }
 
   for channel_id, content in data_list.items():
