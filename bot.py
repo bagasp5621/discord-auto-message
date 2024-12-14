@@ -14,22 +14,20 @@ def getContent(contentTitle):
 wallpaper_content = getContent("WALLPAPER_CONTENT")
 paint_content = getContent("PAINT_CONTENT")
 block_content = getContent("BLOCK_CONTENT")
-seed_content = getContent("SEED_CONTENT")
+ssp_content = getContent("SSP_CONTENT")
 consumable_content = getContent("CONSUMABLES_CONTENT")
 music_content = getContent("MUSIC_CONTENT")
-steam_content = getContent("STEAM_CONTENT")
 jammer_content = getContent("JAMMER_CONTENT")
 door_content = getContent("DOOR_CONTENT")
 sign_content = getContent("SIGN_CONTENT")
 platform_content = getContent("PLATFORM_CONTENT")
-surg_content = getContent("SURG_CONTENT")
 
 header_data = { 
   "content-type": "application/json", 
   "user-agent": "", 
   "authorization": "", 
   "host": "discordapp.com", 
-  "referer": "" 
+  "referer": "thelostnemo" 
 } 
 
 def get_connection(): 
@@ -57,15 +55,13 @@ def main():
       "782718523629633567": wallpaper_content,
       "774455258407370752": paint_content,
       "1104057271215984741": block_content,
-      "1105154359114875072": seed_content,
+      "1106191612339564554": ssp_content,
       "847201895873118218": consumable_content,
       "782718975091933214": music_content,
-      "806499108801478676": steam_content,
       "806523338797219860": jammer_content,
       "846671811223355402": door_content,
       "846661246303469598": sign_content,
-      "846673193426354176": platform_content,
-      "733049257648586792": surg_content
+      "846673193426354176": platform_content
   }
 
   for channel_id, content in data_list.items():
